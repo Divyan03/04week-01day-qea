@@ -17,3 +17,6 @@ test lines, or by reading the summary line. Then write one sentence on when you 
    TODO
 2. What exit code did a run that selected zero tests give? (Try `-k zzzz`.) TODO
 3. Which test is your xfail, and what would you see if the bug were fixed (strict=True)? TODO
+
+## Reading a failure
+I changed the expected word count in `test_count_words_simple_sentence` from 4 to 5, and pytest marked the line with `>`, then printed `assert 4 == 5` followed by `where 4 = count_words("quality is everyone's job")`. That introspection shows the actual value (4) came from the function call and the expected value (5) was the one I wrote, so I could tell straight away that the test was wrong, not the code, without adding any print statements.
